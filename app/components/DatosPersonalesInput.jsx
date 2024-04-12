@@ -16,12 +16,12 @@ const DatosPersonalesInput = () => {
   return (
     <div className=" mx-auto">
       <div className="flex flex-col justify-center items-center">
-        <h2>Apertura de cuenta para Persona Humana</h2>
-        <p>Los campos que contengan * son obligatorios</p>
+        <h2 className=" text-2xl font-semibold text-blue-600 pt-5">Apertura de cuenta para Persona Humana</h2>
+        <p className="text-blue-600 text-sm mb-5">Los campos que contengan * son obligatorios</p>
       </div>
 
       <div className="flex flex-col justify-center items-center h-auto">
-        <h3 className="w-full bg-gray-200 text-center mb-6">
+        <h3 className="w-full bg-gray-200 text-center mb-6 py-1">
           Datos Personales
         </h3>
         <form
@@ -31,9 +31,7 @@ const DatosPersonalesInput = () => {
           {/* Primera Linea */}
           <div className="flex flex-col justify-center items-center md:flex-row gap-10">
             <div className="flex flex-col justify-center items-left w-1/3">
-              <label className="text-gray-400 text-left mb-4 ">
-                Nombre
-              </label>
+              <label className="text-gray-400 text-left mb-4 ">Nombre</label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
                 type="text"
@@ -44,9 +42,7 @@ const DatosPersonalesInput = () => {
             </div>
 
             <div className="flex flex-col justify-center items-left w-1/3">
-              <label className="text-gray-400 text-left mb-4 ">
-                Apellido
-              </label>
+              <label className="text-gray-400 text-left mb-4 ">Apellido</label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
                 type="text"
@@ -117,9 +113,7 @@ const DatosPersonalesInput = () => {
           {/* Tercera Linea */}
           <div className="flex flex-col md:flex-row gap-10 mb-4">
             <div className="flex flex-col justify-center items-left w-1/3">
-              <label className="text-gray-400 text-left mb-4">
-                Genero
-              </label>
+              <label className="text-gray-400 text-left mb-4">Genero</label>
               <select
                 className="outline-none"
                 {...register("genero", {
@@ -167,38 +161,55 @@ const DatosPersonalesInput = () => {
                 <option value="otro">Otro</option>
               </select>
             </div>
-
           </div>
           {/* Quarta Linea */}
-          <div className="flex flex-col md:flex-row gap-10">
-            <div className="flex flex-col justify-center items-left">
-              <label className="text-gray-400 text-left mb-4 pl-3">
-                Nombre
-              </label>
+          <div className="flex flex-col md:flex-row gap-10 mb-5">
+            <div className="flex flex-col justify-center items-left w-1/3">
+              <label className="text-gray-400 text-left">Calle</label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
                 type="text"
-                {...register("name", {
+                {...register("street", {
                   required: true,
                 })}
               />
             </div>
 
-            <div className="flex flex-col justify-center items-left">
-              <label className="text-gray-400 text-left mb-4 pl-3">
-                Apellido
-              </label>
-              <input
-                className=" border-b outline-none px-6 appearance-none"
-                type="text"
-                {...register("surname", {
-                  required: true,
-                })}
-              />
+            <div className="flex flex-row justify-center items-left w-1/3 gap-12">
+              <div className="flex flex-col justify-center items-center w-1/3 ">
+                <label className="text-gray-400 text-left">N°</label>
+                <input
+                  className=" border-b outline-none  appearance-none"
+                  type="text"
+                  {...register("surname", {
+                    required: true,
+                  })}
+                />
+              </div>
+              <div className="flex flex-col justify-center items-center w-1/3">
+                <label className="text-gray-400 text-left">Piso</label>
+                <input
+                  className=" border-b outline-none px-6 appearance-none"
+                  type="text"
+                  {...register("surname", {
+                    required: true,
+                  })}
+                />
+              </div>
+              <div className="flex flex-col justify-center items-center w-1/3">
+                <label className="text-gray-400 text-left">Dto</label>
+                <input
+                  className=" border-b outline-none px-6 appearance-none"
+                  type="text"
+                  {...register("surname", {
+                    required: true,
+                  })}
+                />
+              </div>
             </div>
-            <div className="flex flex-col justify-center items-left">
-              <label className="text-gray-400 text-left mb-4 pl-3">
-                Fecha de nacimiento
+            <div className="flex flex-col justify-center items-left w-1/3">
+              <label className="text-gray-400 text-left">
+                País de residencia
               </label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
@@ -214,9 +225,9 @@ const DatosPersonalesInput = () => {
           </div>
           {/* Quinta Linea */}
           <div className="flex flex-col md:flex-row gap-10">
-            <div className="flex flex-col justify-center items-left">
-              <label className="text-gray-400 text-left mb-4 pl-3">
-                Nombre
+            <div className="flex flex-col justify-center items-left w-1/3">
+              <label className="text-gray-400 text-left mb-4">
+                Codigo Postal
               </label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
@@ -227,9 +238,9 @@ const DatosPersonalesInput = () => {
               />
             </div>
 
-            <div className="flex flex-col justify-center items-left">
-              <label className="text-gray-400 text-left mb-4 pl-3">
-                Apellido
+            <div className="flex flex-col justify-center items-left w-1/3">
+              <label className="text-gray-400 text-left mb-4">
+                Localidad
               </label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
@@ -239,9 +250,9 @@ const DatosPersonalesInput = () => {
                 })}
               />
             </div>
-            <div className="flex flex-col justify-center items-left">
-              <label className="text-gray-400 text-left mb-4 pl-3">
-                Fecha de nacimiento
+            <div className="flex flex-col justify-center items-left w-1/3">
+              <label className="text-gray-400 text-left mb-4">
+                Estado
               </label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
@@ -257,9 +268,9 @@ const DatosPersonalesInput = () => {
           </div>
           {/* Sexta Linea */}
           <div className="flex flex-col md:flex-row gap-10">
-            <div className="flex flex-col justify-center items-left">
-              <label className="text-gray-400 text-left mb-4 pl-3">
-                Nombre
+            <div className="flex flex-col justify-center items-left w-1/3">
+              <label className="text-gray-400 text-left mb-4">
+                Lugar de Nacimiento
               </label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
@@ -270,9 +281,9 @@ const DatosPersonalesInput = () => {
               />
             </div>
 
-            <div className="flex flex-col justify-center items-left">
-              <label className="text-gray-400 text-left mb-4 pl-3">
-                Apellido
+            <div className="flex flex-col justify-center items-left w-1/3">
+              <label className="text-gray-400 text-left mb-4">
+                Teléfono
               </label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
@@ -282,9 +293,9 @@ const DatosPersonalesInput = () => {
                 })}
               />
             </div>
-            <div className="flex flex-col justify-center items-left">
-              <label className="text-gray-400 text-left mb-4 pl-3">
-                Fecha de nacimiento
+            <div className="flex flex-col justify-center items-left w-1/3">
+              <label className="text-gray-400 text-left mb-4">
+                Celular
               </label>
               <input
                 className=" border-b outline-none px-6 appearance-none"

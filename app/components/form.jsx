@@ -1,7 +1,8 @@
-'use client'
+"use client";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { FaInfoCircle } from "react-icons/fa";
+import Link from "next/link";
 
 const Form = () => {
   const {
@@ -18,7 +19,7 @@ const Form = () => {
     Swal.fire({
       title: "N° de trámite de su DNI",
       text: "Según su DNI, el dato se encuentra al frente o dorso del mismo..",
-      imageUrl: "/dni.png", 
+      imageUrl: "/dni.png",
       imageWidth: 400,
       imageHeight: 250,
       imageAlt: "Custom image",
@@ -179,12 +180,14 @@ const Form = () => {
             </p>
           </button>
         </div>
-        <button
-          type="submit"
-          className="bg-blue-700  shadow-lg shadow-gray-800 mt-2 text-white font-bold py-4 w-7/12 mx-auto rounded-full hover:scale-110 hover:shadow-2xl hover:shadow-gray-800 transition duration-300"
-        >
-          Comenzar Trámite
-        </button>
+        <Link href="/datosPersonales" className="flex justify-center">
+          <button
+            type="submit"
+            className="bg-blue-700  shadow-lg shadow-gray-800 mt-2 text-white font-bold py-4 w-7/12 mx-auto rounded-full hover:scale-110 hover:shadow-2xl hover:shadow-gray-800 transition duration-300"
+          >
+            Comenzar Trámite
+          </button>
+        </Link>
       </form>
     </div>
   );
