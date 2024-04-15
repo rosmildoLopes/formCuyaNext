@@ -67,7 +67,7 @@ const DatosPersonalesInput = () => {
               </label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
-                type="number"
+                type="date"
                 {...register("birth", {
                   required: true,
                 })}
@@ -244,7 +244,7 @@ const DatosPersonalesInput = () => {
               <label className="text-gray-400 text-left mb-4">Estado</label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
-                type="number"
+                type="text"
                 {...register("birth", {
                   required: true,
                 })}
@@ -273,8 +273,8 @@ const DatosPersonalesInput = () => {
               <label className="text-gray-400 text-left mb-4">Teléfono</label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
-                type="text"
-                {...register("surname", {
+                type="number"
+                {...register("telefono", {
                   required: true,
                 })}
               />
@@ -311,7 +311,7 @@ const DatosPersonalesInput = () => {
             <div className="flex flex-col justify-center items-left w-1/2">
               <label className="text-gray-400 text-left mb-4 "> Validar email</label>
               <input
-                className=" border-b outline-none px-6 appearance-none"
+                className=" border-b outline-none px-6 remove-arrow"
                 type="mail"
                 {...register("validarEmail", {
                   required: true,
