@@ -1,6 +1,12 @@
 "use client";
 import React from "react";
 import { useForm } from "react-hook-form";
+import Box from "@mui/material/Box";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import TextField from "@mui/material/TextField";
 
 const DatosPersonalesInput = () => {
   const {
@@ -14,10 +20,14 @@ const DatosPersonalesInput = () => {
   };
 
   return (
-    <div className=" mx-auto">
+    <div className="">
       <div className="flex flex-col justify-center items-center">
-        <h2 className=" text-2xl font-semibold text-blue-600 pt-5">Apertura de cuenta para Persona Humana</h2>
-        <p className="text-blue-600 text-sm mb-5">Los campos que contengan * son obligatorios</p>
+        <h2 className=" text-2xl font-semibold text-blue-600 pt-5">
+          Apertura de cuenta para Persona Humana
+        </h2>
+        <p className="text-blue-600 text-sm mb-5">
+          Los campos que contengan * son obligatorios
+        </p>
       </div>
 
       <div className="flex flex-col justify-center items-center h-auto">
@@ -35,7 +45,7 @@ const DatosPersonalesInput = () => {
               <input
                 className=" border-b outline-none px-6 appearance-none"
                 type="text"
-                {...register("name", {
+                {...register("nombre", {
                   required: true,
                 })}
               />
@@ -70,21 +80,23 @@ const DatosPersonalesInput = () => {
           {/* Segunda Linea */}
           <div className="flex flex-col justify-center items-center md:flex-row gap-10 mb-4">
             <div className="flex flex-col justify-center items-left w-1/3">
-              <label className="text-gray-400 text-left mb-4">
+              <InputLabel id="demo-simple-select-standard-label">
                 Tipo de Documento
-              </label>
-              <select
-                className="outline-none"
-                {...register("tipoDocumento", {
+              </InputLabel>
+              <Select variant="standard"
+                {...register("tipoDeDocumento", {
                   required: true,
                 })}
+                label="tipoDeDocumento"
               >
-                <option value="">DNI</option>
-                <option value="lc">L.C.</option>
-                <option value="le">L.E.</option>
-                <option value="pasaporte">Pasaporte</option>
-                <option value="otro">Otro</option>
-              </select>
+                <MenuItem value="dni">
+                  <em>DNI</em>
+                </MenuItem>
+                <MenuItem value="le">L.E.</MenuItem>
+                <MenuItem value="lc">L.C.</MenuItem>
+                <MenuItem value="pasaporte">Pasaporte</MenuItem>
+                <MenuItem value="otro">Otro</MenuItem>
+              </Select>
             </div>
 
             <div className="flex flex-col justify-center items-left w-1/3">
@@ -92,7 +104,10 @@ const DatosPersonalesInput = () => {
                 N° Documento
               </label>
               <input
-                className=" border-b outline-none px-6 appearance-none"
+                {...register("numeroDeDocumento", {
+                  required: true,
+                })}
+                className=" border-b outline-none px-6 remove-arrow"
                 type="number"
               />
             </div>
@@ -102,7 +117,7 @@ const DatosPersonalesInput = () => {
                 Cuil/Cuit/CDI
               </label>
               <input
-                className=" border-b outline-none px-6 appearance-none"
+                className=" border-b outline-none px-6 remove-arrow"
                 type="number"
                 {...register("cuit/cuil/cdi", {
                   required: true,
@@ -113,114 +128,91 @@ const DatosPersonalesInput = () => {
           {/* Tercera Linea */}
           <div className="flex flex-col md:flex-row gap-10 mb-4">
             <div className="flex flex-col justify-center items-left w-1/3">
-              <label className="text-gray-400 text-left mb-4">Genero</label>
-              <select
-                className="outline-none"
+              <InputLabel id="demo-simple-select-standard-label">
+                Genero
+              </InputLabel>
+              <Select variant="standard"
                 {...register("genero", {
                   required: true,
                 })}
+                label="genero"
               >
-                <option value="">Masculino</option>
-                <option value="lc">L.C.</option>
-                <option value="le">L.E.</option>
-                <option value="pasaporte">Pasaporte</option>
-                <option value="otro">Otro</option>
-              </select>
+                <MenuItem value="masculino">Masculino</MenuItem>
+                <MenuItem value="femenino">Femenino</MenuItem>
+                <MenuItem value="No binario">No binario</MenuItem>
+                <MenuItem value="otro">Otro</MenuItem>
+              </Select>
             </div>
             <div className="flex flex-col justify-center items-left w-1/3">
-              <label className="text-gray-400 text-left mb-4">
+              <InputLabel id="demo-simple-select-standard-label">
                 Estado Civil
-              </label>
-              <select
-                className="outline-none"
-                {...register("tipoDocumento", {
+              </InputLabel>
+              <Select variant="standard"
+                {...register("estadoCivil", {
                   required: true,
                 })}
               >
-                <option value="">DNI</option>
-                <option value="lc">L.C.</option>
-                <option value="le">L.E.</option>
-                <option value="pasaporte">Pasaporte</option>
-                <option value="otro">Otro</option>
-              </select>
+                <MenuItem value="soltero">Soltero</MenuItem>
+                <MenuItem value="casado">Casado</MenuItem>
+                <MenuItem value="viudo">Viudo</MenuItem>
+                <MenuItem value="vivorciado">Divorciado</MenuItem>
+              </Select>
             </div>
             <div className="flex flex-col justify-center items-left w-1/3">
-              <label className="text-gray-400 text-left mb-4">
+              <InputLabel id="demo-simple-select-standard-label">
                 Nacionalidad
-              </label>
-              <select
-                className="outline-none"
-                {...register("tipoDocumento", {
+              </InputLabel>
+              <Select variant="standard"
+                {...register("nacionalidad", {
                   required: true,
                 })}
               >
-                <option value="">DNI</option>
-                <option value="lc">L.C.</option>
-                <option value="le">L.E.</option>
-                <option value="pasaporte">Pasaporte</option>
-                <option value="otro">Otro</option>
-              </select>
+                <MenuItem value="angentina">Argentina</MenuItem>
+                <MenuItem value="brasil">Brasil</MenuItem>
+                <MenuItem value="mexico">Mexico</MenuItem>
+                <MenuItem value="españa">España</MenuItem>
+              </Select>
             </div>
           </div>
           {/* Quarta Linea */}
           <div className="flex flex-col md:flex-row gap-10 mb-5">
             <div className="flex flex-col justify-center items-left w-1/3">
-              <label className="text-gray-400 text-left">Calle</label>
+              <label className="text-gray-400 text-left">Calle*</label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
                 type="text"
-                {...register("street", {
+                {...register("calle", {
                   required: true,
                 })}
               />
             </div>
 
             <div className="flex flex-row justify-center items-left w-1/3 gap-12">
-              <div className="flex flex-col justify-center items-center w-1/3 ">
-                <label className="text-gray-400 text-left">N°</label>
-                <input
-                  className=" border-b outline-none  appearance-none"
-                  type="text"
-                  {...register("surname", {
-                    required: true,
-                  })}
-                />
+              <div className="flex justify-center items-center w-1/3 ">
+                <TextField label="N°" variant="standard" />
               </div>
-              <div className="flex flex-col justify-center items-center w-1/3">
-                <label className="text-gray-400 text-left">Piso</label>
-                <input
-                  className=" border-b outline-none px-6 appearance-none"
-                  type="text"
-                  {...register("surname", {
-                    required: true,
-                  })}
-                />
+              <div className="flex justify-center items-center w-1/3 ">
+                <TextField label="Piso" variant="standard" />
               </div>
-              <div className="flex flex-col justify-center items-center w-1/3">
-                <label className="text-gray-400 text-left">Dto</label>
-                <input
-                  className=" border-b outline-none px-6 appearance-none"
-                  type="text"
-                  {...register("surname", {
-                    required: true,
-                  })}
-                />
+              <div className="flex justify-center items-center w-1/3 ">
+                <TextField label="Dto" variant="standard" />
               </div>
             </div>
+
             <div className="flex flex-col justify-center items-left w-1/3">
-              <label className="text-gray-400 text-left">
-                País de residencia
-              </label>
-              <input
-                className=" border-b outline-none px-6 appearance-none"
-                type="number"
-                {...register("birth", {
+              <InputLabel id="demo-simple-select-standard-label">
+                País de Residencia
+              </InputLabel>
+              <Select variant="standard"
+                {...register("pais", {
                   required: true,
                 })}
-              />
-              {errors.birth?.type === "required" && (
-                <p className="text-red-600">El campo es obligatorio</p>
-              )}
+              >
+                <MenuItem value="angentina">Argentina</MenuItem>
+                <MenuItem value="brasil">Brasil</MenuItem>
+                <MenuItem value="mexico">Mexico</MenuItem>
+                <MenuItem value="españa">España</MenuItem>
+              </Select>
             </div>
           </div>
           {/* Quinta Linea */}
@@ -239,9 +231,7 @@ const DatosPersonalesInput = () => {
             </div>
 
             <div className="flex flex-col justify-center items-left w-1/3">
-              <label className="text-gray-400 text-left mb-4">
-                Localidad
-              </label>
+              <label className="text-gray-400 text-left mb-4">Localidad</label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
                 type="text"
@@ -251,9 +241,7 @@ const DatosPersonalesInput = () => {
               />
             </div>
             <div className="flex flex-col justify-center items-left w-1/3">
-              <label className="text-gray-400 text-left mb-4">
-                Estado
-              </label>
+              <label className="text-gray-400 text-left mb-4">Estado</label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
                 type="number"
@@ -282,9 +270,7 @@ const DatosPersonalesInput = () => {
             </div>
 
             <div className="flex flex-col justify-center items-left w-1/3">
-              <label className="text-gray-400 text-left mb-4">
-                Teléfono
-              </label>
+              <label className="text-gray-400 text-left mb-4">Teléfono</label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
                 type="text"
@@ -294,9 +280,7 @@ const DatosPersonalesInput = () => {
               />
             </div>
             <div className="flex flex-col justify-center items-left w-1/3">
-              <label className="text-gray-400 text-left mb-4">
-                Celular
-              </label>
+              <label className="text-gray-400 text-left mb-4">Celular</label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
                 type="number"
@@ -309,23 +293,34 @@ const DatosPersonalesInput = () => {
               )}
             </div>
           </div>
-
-          <div className="flex flex-col ">
-            <label className="text-gray-400 text-left mb-4 pl-3">Género</label>
-            <select
-              className="outline-none"
-              {...register("genero", {
-                required: true,
-              })}
-            >
-              <option value="">Seleccionar</option>
-              <option value="masculino">Masculino</option>
-              <option value="femenino">Femenino</option>
-              <option value="no_binario">No binario</option>
-            </select>
-            {errors.genero?.type === "required" && (
-              <p className="text-red-600">Este campo es obligatorio</p>
-            )}
+          {/* Sexta Linea */}
+          <div className="flex flex-col md:flex-row gap-12 justify-between">
+            <div className="flex flex-col justify-center items-left w-1/2">
+              <label className="text-gray-400 text-left mb-4">Email</label>
+              <input
+                className=" border-b outline-none px-6 appearance-none"
+                type="mail"
+                {...register("email", {
+                  required: true,
+                })}
+              />
+              {errors.genero?.type === "required" && (
+                <p className="text-red-600">Este campo es obligatorio</p>
+              )}
+            </div>
+            <div className="flex flex-col justify-center items-left w-1/2">
+              <label className="text-gray-400 text-left mb-4 "> Validar email</label>
+              <input
+                className=" border-b outline-none px-6 appearance-none"
+                type="mail"
+                {...register("validarEmail", {
+                  required: true,
+                })}
+              />
+              {errors.genero?.type === "required" && (
+                <p className="text-red-600">Este campo es obligatorio</p>
+              )}
+            </div>
           </div>
         </form>
       </div>
