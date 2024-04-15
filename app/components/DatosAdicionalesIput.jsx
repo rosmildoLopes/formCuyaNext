@@ -1,6 +1,7 @@
 "use client";
 import { useForm } from "react-hook-form";
 import { styled } from "@mui/material/styles";
+import Swal from "sweetalert2";
 import React from "react";
 import Box from "@mui/material/Box";
 import InputLabel from "@mui/material/InputLabel";
@@ -19,14 +20,39 @@ const DatosAdicionalesIput = () => {
     formState: { errors },
   } = useForm();
 
-  const handleSweetAlertDni = () => {
+  const handleSweetAlertInversor = () => {
     Swal.fire({
-      title: "N° de trámite de su DNI",
-      text: "Según su DNI, el dato se encuentra al frente o dorso del mismo..",
-      imageUrl: "/dni.png",
-      imageWidth: 400,
-      imageHeight: 250,
-      imageAlt: "Custom image",
+      title: "Información sobre Inversores Calificados",
+    });
+  };
+
+  const handleSweetAlertSujeto = () => {
+    Swal.fire({
+      title: "Listado de Sujetos Obligados",
+    });
+  };
+
+  const handleSweetAlertFATCA = () => {
+    Swal.fire({
+      title: "Información sobre FATCA",
+    });
+  };
+
+  const handleSweetAlertPEP = () => {
+    Swal.fire({
+      title: "RES. UIF 134/2018",
+    });
+  };
+
+  const handleSweetAlertResidencia = () => {
+    Swal.fire({
+      title: "Información sobre Residencia fiscal",
+    });
+  };
+
+  const handleSweetAlertAAGI = () => {
+    Swal.fire({
+      title: "Información sobre AAGI's",
     });
   };
 
@@ -242,7 +268,7 @@ const DatosAdicionalesIput = () => {
           />
           <button
             className="h-12 w-12 rounded-full"
-            onClick={handleSweetAlertDni}
+            onClick={handleSweetAlertInversor}
           >
             <p className="text-blue-700 hover:scale-125  transition duration-300">
               <FaInfoCircle />
@@ -259,7 +285,7 @@ const DatosAdicionalesIput = () => {
           />
           <button
             className="h-12 w-12 rounded-full"
-            onClick={handleSweetAlertDni}
+            onClick={handleSweetAlertSujeto}
           >
             <p className="text-blue-700 hover:scale-125  transition duration-300">
               <FaInfoCircle />
@@ -275,7 +301,7 @@ const DatosAdicionalesIput = () => {
           />
           <button
             className="h-12 w-12 rounded-full"
-            onClick={handleSweetAlertDni}
+            onClick={handleSweetAlertFATCA}
           >
             <p className="text-blue-700 hover:scale-125  transition duration-300">
               <FaInfoCircle />
@@ -294,7 +320,7 @@ const DatosAdicionalesIput = () => {
           />
           <button
             className="h-12 w-12 rounded-full"
-            onClick={handleSweetAlertDni}
+            onClick={handleSweetAlertPEP}
           >
             <p className="text-blue-700 hover:scale-125  transition duration-300">
               <FaInfoCircle />
@@ -310,7 +336,7 @@ const DatosAdicionalesIput = () => {
           />
           <button
             className="h-12 w-12 rounded-full"
-            onClick={handleSweetAlertDni}
+            onClick={handleSweetAlertResidencia}
           >
             <p className="text-blue-700 hover:scale-125  transition duration-300">
               <FaInfoCircle />
@@ -326,7 +352,7 @@ const DatosAdicionalesIput = () => {
           />
           <button
             className="h-12 w-12 rounded-full"
-            onClick={handleSweetAlertDni}
+            onClick={handleSweetAlertAAGI}
           >
             <p className="text-blue-700 hover:scale-125  transition duration-300">
               <FaInfoCircle />
