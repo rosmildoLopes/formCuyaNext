@@ -327,26 +327,6 @@ const DatosPersonalesInput = () => {
               <p className="text-red-600">Este campo es obligatorio</p>
             )}
           </div>
-          <div className="flex justify-between items-center">
-            <div className="w-11/12 flex gap-3 justify-center items-center">
-              <input
-                type="checkbox"
-                {...register("consentimiento", {
-                  required: true,
-                })}
-              />
-
-              <p className="font-semibold">
-                Consentimiento informado ante Renaper
-              </p>
-            </div>
-          </div>
-          <button
-            type="submit"
-            className="bg-blue-700  shadow-lg shadow-gray-800 mt-2 text-white font-bold py-4 w-7/12 mx-auto rounded-full hover:scale-110 hover:shadow-2xl hover:shadow-gray-800 transition duration-300"
-          >
-            Comenzar Trámite
-          </button>
         </form>
       </div>
     </div>
