@@ -92,7 +92,7 @@ const DatosAdicionalesIput = () => {
   return (
     <div className="flex flex-col gap-8 my-8">
       <div className="flex flex-col justify-center items-center">
-        <h3 className="w-full bg-gray-200 text-center mt-20 py-1">
+        <h3 className="w-full bg-gray-200 text-blue-600 text-center mt-20 py-1">
           Datos Adicionales
         </h3>
       </div>
@@ -371,7 +371,7 @@ const DatosAdicionalesIput = () => {
         </div>
       </div>
       <div className="flex flex-col justify-center items-center">
-        <h3 className="w-full bg-gray-200 text-center mt-10 py-1">
+        <h3 className="w-full bg-gray-200 text-blue-600 text-center mt-10 py-1">
           Ultimos Pasos
         </h3>
       </div>

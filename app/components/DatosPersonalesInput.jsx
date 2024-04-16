@@ -31,7 +31,7 @@ const DatosPersonalesInput = () => {
       </div>
 
       <div className="flex flex-col justify-center items-center h-auto">
-        <h3 className="w-full bg-gray-200 text-center mb-6 py-1">
+        <h3 className="w-full bg-gray-200 text-blue-600 text-center mb-6 py-1">
           Datos Personales
         </h3>
         <form
