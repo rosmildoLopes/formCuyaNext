@@ -91,14 +91,14 @@ const DatosAdicionalesIput = () => {
 
   return (
     <div className="flex flex-col gap-8 my-8">
-      {/* Primera Linea */}
       <div className="flex flex-col justify-center items-center">
         <h3 className="w-full bg-gray-200 text-center mt-20 py-1">
           Datos Adicionales
         </h3>
       </div>
-      <div className="flex gap-8 ">
-        <div className="w-1/3">
+      {/* Primera Linea */}
+      <div className="flex flex-col gap-8 md:flex-row">
+        <div className="md:w-1/3 w-full">
           <TextField
             id="ingresosAnualesEn$"
             label="Ingresos anuales en $"
@@ -106,7 +106,7 @@ const DatosAdicionalesIput = () => {
             className="w-full"
           />
         </div>
-        <div className="w-1/3">
+        <div className="md:w-1/3 w-full">
           <Box sx={{ minWidth: 120 }}>
             <FormControl fullWidth>
               <InputLabel id="procedenciaDeLosFondos">
@@ -129,7 +129,7 @@ const DatosAdicionalesIput = () => {
             </FormControl>
           </Box>
         </div>
-        <div className="w-1/3">
+        <div className="md:w-1/3 w-full">
           <Box sx={{ minWidth: 120 }}>
             <FormControl fullWidth>
               <InputLabel id="montoAnualAInvertirEn$">
@@ -162,8 +162,8 @@ const DatosAdicionalesIput = () => {
         </div>
       </div>
       {/* Segunda Linea */}
-      <div className="flex gap-8">
-        <div className="w-1/3">
+      <div className="flex flex-col gap-8 md:flex-row">
+        <div className="md:w-1/3 w-full">
           <Box sx={{ minWidth: 120 }}>
             <FormControl fullWidth>
               <InputLabel id="Actividad">Actividad</InputLabel>
@@ -218,7 +218,7 @@ const DatosAdicionalesIput = () => {
             </FormControl>
           </Box>
         </div>
-        <div className="w-1/3">
+        <div className="md:w-1/3 w-full">
           <TextField
             id="profecion/cargo/ocupacion"
             label="Profesión/Cargo/Ocupación"
@@ -226,7 +226,7 @@ const DatosAdicionalesIput = () => {
             className="w-full"
           />
         </div>
-        <div className="w-1/3">
+        <div className="md:w-1/3 w-full">
           <Box sx={{ minWidth: 120 }}>
             <FormControl fullWidth>
               <InputLabel id="fondosDeLaCuentaComitente">
@@ -258,8 +258,8 @@ const DatosAdicionalesIput = () => {
         </div>
       </div>
       {/* Tercera Linea */}
-      <div className="flex gap-8">
-        <div className="w-1/3 flex gap-8">
+      <div className="flex flex-col gap-8 md:flex-row">
+        <div className="md:w-1/3 w-full flex gap-8">
           <FormControlLabel
             control={<Android12Switch />}
             label="¿Sos Inversor Calificado?"
@@ -275,7 +275,7 @@ const DatosAdicionalesIput = () => {
             </p>
           </button>
         </div>
-        <div className="w-1/3 flex gap-8">
+        <div className="md:w-1/3 w-full flex gap-8">
           <FormControlLabel
             control={<Android12Switch />}
             label="¿Sos Sujeto
@@ -292,7 +292,7 @@ const DatosAdicionalesIput = () => {
             </p>
           </button>
         </div>
-        <div className="w-1/3 flex gap-8">
+        <div className="md:w-1/3 w-full flex gap-8">
           <FormControlLabel
             control={<Android12Switch />}
             label="¿Sos FATCA?"
@@ -310,8 +310,8 @@ const DatosAdicionalesIput = () => {
         </div>
       </div>
       {/* Cuarta Linea */}
-      <div className="flex gap-8">
-        <div className="w-1/3 flex gap-8">
+      <div className="flex flex-col gap-8 md:flex-row">
+        <div className="md:w-1/3 w-full flex gap-8">
           <FormControlLabel
             control={<Android12Switch />}
             label="¿Sos PEP?"
@@ -327,7 +327,7 @@ const DatosAdicionalesIput = () => {
             </p>
           </button>
         </div>
-        <div className="w-1/3 flex gap-8">
+        <div className="md:w-1/3 w-full flex gap-8">
           <FormControlLabel
             control={<Android12Switch />}
             label="Residencia fiscal en el exterior?"
@@ -343,7 +343,7 @@ const DatosAdicionalesIput = () => {
             </p>
           </button>
         </div>
-        <div className="w-1/3 flex gap-8">
+        <div className="md:w-1/3 w-full flex gap-8">
           <FormControlLabel
             control={<Android12Switch />}
             label="¿Sos cliente de un AAGI?"
@@ -360,9 +360,9 @@ const DatosAdicionalesIput = () => {
           </button>
         </div>
       </div>
-      {/* Tercera Linea */}
-      <div className="pt-10 flex gap-8">
-        <div className="w-1/3 flex gap-8">
+      {/* Quinta Linea */}
+      <div className="pt-10 flex flex-col gap-8 md:flex-row">
+        <div className="md:w-1/3 w-full flex gap-8">
           <FormControlLabel
             control={<Android12Switch />}
             label="¿Queres Administración de Cartera?"
@@ -376,15 +376,15 @@ const DatosAdicionalesIput = () => {
         </h3>
       </div>
       {/* Primera Linea de Ultimos Pasos */}
-      <div className="pt-10 flex gap-8">
-        <div className="w-1/3  mr-24">
+      <div className="pt-10 flex flex-col gap-8 md:flex-row">
+        <div className="md:w-1/3 w-full  mr-24">
           <FormControlLabel
             control={<Android12Switch />}
             label="¿Llegó a nosotros recomendado por alguien?"
             labelPlacement="start"
           />
         </div>
-        <div className="w-1/3">
+        <div className="md:w-1/3 w-full">
           <TextField
             id="emailDeContacto"
             label="Email de contacto"
@@ -392,7 +392,7 @@ const DatosAdicionalesIput = () => {
             className="w-full"
           />
         </div>
-        <div className="w-1/3">
+        <div className="md:w-1/3 w-full">
           <TextField
             id="nombreCompleto"
             label="Nombre Completo"
@@ -401,11 +401,12 @@ const DatosAdicionalesIput = () => {
           />
         </div>
       </div>
-      <div className="pt-10 flex gap-20">
+      <div className="relative pt-10 flex flex-col md:flex-row gap-20">
         <FormControlLabel
           control={<Android12Switch />}
           label=""
           labelPlacement="start"
+          className="absolute -top-4 -left-6 md:relative"
         />
         <div className="text-xs">
           Manifiesto en carácter de Declaración Jurada que los fondos utilizados
