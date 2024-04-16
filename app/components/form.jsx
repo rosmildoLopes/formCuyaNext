@@ -3,6 +3,9 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { FaInfoCircle } from "react-icons/fa";
 import Link from "next/link";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 const Form = () => {
   const {
@@ -86,7 +89,7 @@ const Form = () => {
       <p className="flex justify-center items-center text-4xl font-extrabold text-zinc-600 w-8/12 mx-auto h-20">
         LOGO CUYANAS
       </p>
-      <h2 className="bg-blue-700 py-2 text-2xl text-center font-bold text-white w-full shadow-lg shadow-gray-800 mb-2">
+      <h2 className="bg-blue-700 py-2 text-2xl text-center font-bold text-white w-11/12 mx-auto shadow-lg shadow-gray-800 mb-2">
         Iniciar Alta de Cuenta de Persona Humana
       </h2>
       {errors.consentimiento?.type === "required" && (
@@ -140,18 +143,21 @@ const Form = () => {
           )}
         </div>
         <div className="flex flex-col ">
-          <label className="text-gray-400 text-left mb-4 pl-3">Género</label>
-          <select
-            className="outline-none"
-            {...register("genero", {
-              required: true,
-            })}
-          >
-            <option value="">Seleccionar</option>
-            <option value="masculino">Masculino</option>
-            <option value="femenino">Femenino</option>
-            <option value="no_binario">No binario</option>
-          </select>
+        <InputLabel id="demo-simple-select-standard-label">
+                Genero
+              </InputLabel>
+              <Select
+                variant="standard"
+                {...register("genero", {
+                  required: true,
+                })}
+                label="genero"
+              >
+                <MenuItem value="masculino">Masculino</MenuItem>
+                <MenuItem value="femenino">Femenino</MenuItem>
+                <MenuItem value="No binario">No binario</MenuItem>
+                <MenuItem value="otro">Otro</MenuItem>
+              </Select>
           {errors.genero?.type === "required" && (
             <p className="text-red-600">Este campo es obligatorio</p>
           )}
@@ -183,7 +189,7 @@ const Form = () => {
         <Link href="/datosPersonales" className="flex justify-center">
           <button
             type="submit"
-            className="bg-blue-700  shadow-lg shadow-gray-800 mt-2 text-white font-bold py-4 w-7/12 mx-auto rounded-full hover:scale-110 hover:shadow-2xl hover:shadow-gray-800 transition duration-300"
+            className="bg-blue-700 mt-2 text-white font-bold py-4 w-full mx-auto rounded-full hover:scale-110 hover:shadow-2xl hover:shadow-gray-800 transition duration-300"
           >
             Comenzar Trámite
           </button>

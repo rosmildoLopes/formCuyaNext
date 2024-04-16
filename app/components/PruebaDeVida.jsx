@@ -15,7 +15,7 @@ const PruebaDeVida = () => {
   return (
     <div>
       <div className="flex flex-col md:flex-row gap-12 justify-center mt-12">
-        <div className="flex flex-col border rounded-xl py-10 px-12 gap-6 w-1/2">
+        <div className="flex flex-col border rounded-xl py-10 px-12 gap-6 w-full md:w-1/2">
           <div className="flex justify-center items-center">
             <button className="bg-blue-600 text-white w-2/3 py-2 rounded-lg font-semibold flex items-center justify-center gap-3">
               <p className="flex justify-center items-center text-xl">
@@ -41,15 +41,15 @@ const PruebaDeVida = () => {
               className="h-12 w-12 rounded-full"
               onClick={handleSweetAlertDni}
             >
-              <p className="text-blue-700 text-4xl hover:scale-125  transition duration-300">
+              <p className="text-blue-700 text-4xl hover:scale-125 transition duration-300">
                 <FaInfoCircle />
               </p>
             </button>
           </div>
         </div>
-        <div className="flex flex-col border rounded-xl py-10 px-12 gap-6 w-1/2">
+        <div className="flex flex-col border rounded-xl py-10 px-12 gap-6 w-full md:w-1/2">
           <div className="flex flex-col md:flex-row justify-center items-center ">
-            <button className="bg-blue-600 text-white w-2/3 py-2 rounded-lg font-semibold flex items-center justify-center gap-3">
+            <button className="bg-blue-600 text-white w-full lg:w-2/3 py-2 px-1 rounded-lg text-xs md:text-base font-semibold flex items-center justify-center gap-3">
               <p className="flex justify-center items-center text-xl">
                 <ImUpload3 />
               </p>

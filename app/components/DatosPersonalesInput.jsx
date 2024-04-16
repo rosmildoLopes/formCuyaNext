@@ -40,7 +40,7 @@ const DatosPersonalesInput = () => {
         >
           {/* Primera Linea */}
           <div className="flex flex-col justify-center items-center md:flex-row gap-10">
-            <div className="flex flex-col justify-center items-left w-1/3">
+            <div className="flex flex-col justify-center items-left w-full md:w-1/3">
               <label className="text-gray-400 text-left mb-4 ">Nombre</label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
@@ -51,7 +51,7 @@ const DatosPersonalesInput = () => {
               />
             </div>
 
-            <div className="flex flex-col justify-center items-left w-1/3">
+            <div className="flex flex-col justify-center items-left w-full md:w-1/3">
               <label className="text-gray-400 text-left mb-4 ">Apellido</label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
@@ -61,7 +61,7 @@ const DatosPersonalesInput = () => {
                 })}
               />
             </div>
-            <div className="flex flex-col justify-center items-left w-1/3">
+            <div className="flex flex-col justify-center items-left w-full md:w-1/3">
               <label className="text-gray-400 text-left mb-4 ">
                 Fecha de nacimiento
               </label>
@@ -79,11 +79,12 @@ const DatosPersonalesInput = () => {
           </div>
           {/* Segunda Linea */}
           <div className="flex flex-col justify-center items-center md:flex-row gap-10 mb-4">
-            <div className="flex flex-col justify-center items-left w-1/3">
+            <div className="flex flex-col justify-center items-left w-full md:w-1/3">
               <InputLabel id="demo-simple-select-standard-label">
                 Tipo de Documento
               </InputLabel>
-              <Select variant="standard"
+              <Select
+                variant="standard"
                 {...register("tipoDeDocumento", {
                   required: true,
                 })}
@@ -99,7 +100,7 @@ const DatosPersonalesInput = () => {
               </Select>
             </div>
 
-            <div className="flex flex-col justify-center items-left w-1/3">
+            <div className="flex flex-col justify-center items-left w-full md:w-1/3">
               <label className="text-gray-400 text-left mb-4">
                 N° Documento
               </label>
@@ -112,7 +113,7 @@ const DatosPersonalesInput = () => {
               />
             </div>
 
-            <div className="flex flex-col justify-center items-left w-1/3">
+            <div className="flex flex-col justify-center items-left w-full md:w-1/3">
               <label className="text-gray-400 text-left mb-4 ">
                 Cuil/Cuit/CDI
               </label>
@@ -127,11 +128,12 @@ const DatosPersonalesInput = () => {
           </div>
           {/* Tercera Linea */}
           <div className="flex flex-col md:flex-row gap-10 mb-4">
-            <div className="flex flex-col justify-center items-left w-1/3">
+            <div className="flex flex-col justify-center items-left w-full md:w-1/3">
               <InputLabel id="demo-simple-select-standard-label">
                 Genero
               </InputLabel>
-              <Select variant="standard"
+              <Select
+                variant="standard"
                 {...register("genero", {
                   required: true,
                 })}
@@ -143,11 +145,12 @@ const DatosPersonalesInput = () => {
                 <MenuItem value="otro">Otro</MenuItem>
               </Select>
             </div>
-            <div className="flex flex-col justify-center items-left w-1/3">
+            <div className="flex flex-col justify-center items-left w-full md:w-1/3">
               <InputLabel id="demo-simple-select-standard-label">
                 Estado Civil
               </InputLabel>
-              <Select variant="standard"
+              <Select
+                variant="standard"
                 {...register("estadoCivil", {
                   required: true,
                 })}
@@ -158,11 +161,12 @@ const DatosPersonalesInput = () => {
                 <MenuItem value="vivorciado">Divorciado</MenuItem>
               </Select>
             </div>
-            <div className="flex flex-col justify-center items-left w-1/3">
+            <div className="flex flex-col justify-center items-left w-full md:w-1/3">
               <InputLabel id="demo-simple-select-standard-label">
                 Nacionalidad
               </InputLabel>
-              <Select variant="standard"
+              <Select
+                variant="standard"
                 {...register("nacionalidad", {
                   required: true,
                 })}
@@ -176,7 +180,7 @@ const DatosPersonalesInput = () => {
           </div>
           {/* Quarta Linea */}
           <div className="flex flex-col md:flex-row gap-10 mb-5">
-            <div className="flex flex-col justify-center items-left w-1/3">
+            <div className="flex flex-col justify-center items-left w-full md:w-1/3">
               <label className="text-gray-400 text-left">Calle*</label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
@@ -187,7 +191,7 @@ const DatosPersonalesInput = () => {
               />
             </div>
 
-            <div className="flex flex-row justify-center items-left w-1/3 gap-12">
+            <div className="flex flex-row justify-center items-left w-full md:w-1/3 gap-12">
               <div className="flex justify-center items-center w-1/3 ">
                 <TextField label="N°" variant="standard" />
               </div>
@@ -199,11 +203,12 @@ const DatosPersonalesInput = () => {
               </div>
             </div>
 
-            <div className="flex flex-col justify-center items-left w-1/3">
+            <div className="flex flex-col justify-center items-left w-full md:w-1/3">
               <InputLabel id="demo-simple-select-standard-label">
                 País de Residencia
               </InputLabel>
-              <Select variant="standard"
+              <Select
+                variant="standard"
                 {...register("pais", {
                   required: true,
                 })}
@@ -217,7 +222,7 @@ const DatosPersonalesInput = () => {
           </div>
           {/* Quinta Linea */}
           <div className="flex flex-col md:flex-row gap-10">
-            <div className="flex flex-col justify-center items-left w-1/3">
+            <div className="flex flex-col justify-center items-left w-full md:w-1/3">
               <label className="text-gray-400 text-left mb-4">
                 Codigo Postal
               </label>
@@ -230,7 +235,7 @@ const DatosPersonalesInput = () => {
               />
             </div>
 
-            <div className="flex flex-col justify-center items-left w-1/3">
+            <div className="flex flex-col justify-center items-left w-full md:w-1/3">
               <label className="text-gray-400 text-left mb-4">Localidad</label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
@@ -240,7 +245,7 @@ const DatosPersonalesInput = () => {
                 })}
               />
             </div>
-            <div className="flex flex-col justify-center items-left w-1/3">
+            <div className="flex flex-col justify-center items-left w-full md:w-1/3">
               <label className="text-gray-400 text-left mb-4">Estado</label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
@@ -256,7 +261,7 @@ const DatosPersonalesInput = () => {
           </div>
           {/* Sexta Linea */}
           <div className="flex flex-col md:flex-row gap-10">
-            <div className="flex flex-col justify-center items-left w-1/3">
+            <div className="flex flex-col justify-center items-left w-full md:w-1/3">
               <label className="text-gray-400 text-left mb-4">
                 Lugar de Nacimiento
               </label>
@@ -269,7 +274,7 @@ const DatosPersonalesInput = () => {
               />
             </div>
 
-            <div className="flex flex-col justify-center items-left w-1/3">
+            <div className="flex flex-col justify-center items-left w-full md:w-1/3">
               <label className="text-gray-400 text-left mb-4">Teléfono</label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
@@ -279,7 +284,7 @@ const DatosPersonalesInput = () => {
                 })}
               />
             </div>
-            <div className="flex flex-col justify-center items-left w-1/3">
+            <div className="flex flex-col justify-center items-left w-full md:w-1/3">
               <label className="text-gray-400 text-left mb-4">Celular</label>
               <input
                 className=" border-b outline-none px-6 appearance-none"
@@ -309,7 +314,10 @@ const DatosPersonalesInput = () => {
               )}
             </div>
             <div className="flex flex-col justify-center items-left w-1/2">
-              <label className="text-gray-400 text-left mb-4 "> Validar email</label>
+              <label className="text-gray-400 text-left mb-4 ">
+                {" "}
+                Validar email
+              </label>
               <input
                 className=" border-b outline-none px-6 remove-arrow"
                 type="mail"
