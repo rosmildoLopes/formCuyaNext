@@ -6,7 +6,9 @@ import { FcQuestions } from "react-icons/fc";
 const RealizarTest = () => {
   return (
     <div className="flex flex-col w-9/12 mx-auto gap-10 pt-6">
-      <h2 className="text-center text-xl text-blue-700 font-bold bg-gray-200 w-full py-1">Test Perfil del Inversor</h2>
+      <h2 className="text-center text-xl text-blue-700 font-bold bg-gray-200 w-full py-1">
+        Test Perfil del Inversor
+      </h2>
       <div className="flex flex-col justify-center items-center gap-3">
         <h3 className="font-bold text-xl">¿De qué se trata?</h3>
         <p className="text-5xl">
@@ -41,7 +43,7 @@ const RealizarTest = () => {
         </ol>
       </div>
       <div>
-        <div className="flex justify-end items-center my-6">
+        <div className="flex justify-end items-center my-6 ">
           <Link href="/testPerfilDeInversor">
             <button className="px-5 py-3 bg-blue-600 text-white font-semibold rounded-xl">
               Continuar
