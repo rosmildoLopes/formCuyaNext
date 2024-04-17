@@ -5,6 +5,7 @@ import { FaInfoCircle } from "react-icons/fa";
 import Swal from "sweetalert2";
 import SubirDni from "../components/subirDni";
 import PruebaDeVida from "../components/PruebaDeVida";
+import Link from "next/link";
 
 const DocumentacionRequerida = () => {
   return (
@@ -28,9 +29,11 @@ const DocumentacionRequerida = () => {
       </p>
       <PruebaDeVida />
       <div className="flex justify-end items-center my-6">
-        <button className="px-5 py-3 bg-blue-600 text-white font-semibold rounded-xl">
-          Continuar
-        </button>
+        <Link href="/datosDelTitular">
+          <button className="px-5 py-3 bg-blue-600 text-white font-semibold rounded-xl">
+            Continuar
+          </button>
+        </Link>
       </div>
     </div>
   );
