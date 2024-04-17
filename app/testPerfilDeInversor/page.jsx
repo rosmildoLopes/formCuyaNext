@@ -1,47 +1,27 @@
-'use client'
-import React from 'react'
-import { useState, useEffect } from "react";
-import preguntas from "../constants/preguntas.js";
-
+"use client";
+import React, { useState, useEffect } from "react";
+import preguntas from "../constants/preguntas";
+import { BsPersonRaisedHand } from "react-icons/bs";
+import Image from "next/image";
+import Link from "next/link";
 
 const TestPerfilInversor = () => {
   const [preguntasAleatorias, setPreguntasAleatorias] = useState([]);
   const [preguntaActual, setPreguntaActual] = useState(0);
-  const [puntuación, setPuntuación] = useState(0);
-  const [isFinished, setIsFinished] = useState(false);
   const [tiempoRestante, setTiempoRestante] = useState(10);
   const [areDisabled, setAreDisabled] = useState(false);
-  const [showAnswer, setshowAnswer] = useState(false);
+  const [respuestas, setRespuestas] = useState([]);
+  const [resultadosMostrados, setResultadosMostrados] = useState(false);
+
+  const reiniciarTest = () => {
+    window.location.reload();
+  };
 
   useEffect(() => {
     // Crear una copia aleatoria del array de preguntas
     const preguntasAleatorias = [...preguntas].sort(() => Math.random() - 0.5);
     setPreguntasAleatorias(preguntasAleatorias);
   }, []);
-
-  function getPreguntaActual() {
-    if (preguntasAleatorias.length > 0) {
-      return preguntasAleatorias[preguntaActual];
-    } else {
-      return { titulo: "Error: No hay preguntas disponibles", opciones: [] };
-    }
-  }
-
-  function handleAnswerSubmit(isCorrect, e) {
-    // añadir puntuación
-    if (isCorrect) setPuntuación(puntuación + 1);
-    // añadir estilos de pregunta
-    e.target.classList.add(isCorrect ? "correct" : "incorrect");
-    // cambiar a la siguiente pregunta
-    setTimeout(() => {
-      if (preguntaActual === preguntas.length - 1) {
-        setIsFinished(true);
-      } else {
-        setPreguntaActual(preguntaActual + 1);
-        setTiempoRestante(40);
-      }
-    }, 1500);
-  }
 
   useEffect(() => {
     const intervalo = setInterval(() => {
@@ -52,113 +32,167 @@ const TestPerfilInversor = () => {
     return () => clearInterval(intervalo);
   }, [tiempoRestante]);
 
-  if (isFinished)
-    return (
-      <main className="bg-[#8435de] text-white w-[500px] flex h-80 rounded-3xl">
-        <div className="juego-terminado">
-          <span>
-            {" "}
-            Obtuviste {puntuación} de {preguntas.length}{" "}
-          </span>
-          <button onClick={() => (window.location.href = "/")}>
-            {" "}
-            Volver a jugar
-          </button>
-          <button
-            onClick={() => {
-              setIsFinished(false);
-              setshowAnswer(true);
-              setPreguntaActual(0);
-            }}
-          >
-            Ver respuestas
-          </button>
-        </div>
-      </main>
-    );
+  const handleAnswerSubmit = (opcionSeleccionada) => {
+    const nuevasRespuestas = [...respuestas];
+    nuevasRespuestas[preguntaActual] = opcionSeleccionada;
+    setRespuestas(nuevasRespuestas);
 
-  if (showAnswer)
-    return (
-      <main className="bg-[#8435de] text-white h-full w-[500px] flex  flex-col justify-evenly items-center rounded-3xl">
-        <div className="lado-izquierdo">
-          <div className="numero-pregunta">
-            <span> Pregunta {preguntaActual + 1} de</span> {preguntas.length}
-          </div>
-          <div className="titulo-pregunta">
-            {getPreguntaActual().titulo}
-          </div>
-          <div>
-            {
-              getPreguntaActual().opciones.filter(
-                (opcion) => opcion.isCorrect
-              )[0].textoRespuesta
-            }
-          </div>
-          <button
-            onClick={() => {
-              if (preguntaActual === preguntas.length - 1) {
-                window.location.href = "/";
-              } else {
-                setPreguntaActual(preguntaActual + 1);
-              }
-            }}
-          >
-            {preguntaActual === preguntas.length - 1
-              ? "Volver a jugar"
-              : "Siguiente"}
-          </button>
-        </div>
-      </main>
+    setTimeout(() => {
+      if (preguntaActual === preguntas.length - 1) {
+        // Si es la última pregunta, termina el quiz
+        setAreDisabled(true);
+        setResultadosMostrados(true);
+      } else {
+        // Si no es la última pregunta, pasa a la siguiente
+        setPreguntaActual(preguntaActual + 1);
+        setTiempoRestante(10);
+      }
+    }, 1500);
+  };
+
+  const getPreguntaActual = () => {
+    if (preguntasAleatorias.length > 0) {
+      return preguntasAleatorias[preguntaActual];
+    } else {
+      return { titulo: "Error: No hay preguntas disponibles", opciones: [] };
+    }
+  };
+
+  // Función para determinar el perfil predominante entre las respuestas
+  const determinarPerfilPredominante = () => {
+    const perfilesContados = respuestas.reduce((acc, respuesta) => {
+      acc[respuesta.perfil] = (acc[respuesta.perfil] || 0) + 1;
+      return acc;
+    }, {});
+
+    const perfilPredominante = Object.keys(perfilesContados).reduce((a, b) =>
+      perfilesContados[a] > perfilesContados[b] ? a : b
     );
+    return perfilPredominante;
+  };
+
+  // Mostrar variantes de productos de acuerdo al perfil del usuario
+  const mostrarProductos = () => {
+    switch (determinarPerfilPredominante()) {
+      case "principiante":
+        return (
+          <ul className="text-black list-disc text-lg">
+            <li>Fondos comunes de inversión</li>
+            <li>Acciones de empresas consolidadas</li>
+            <li>Bonos soberanos</li>
+          </ul>
+        );
+      case "moderado":
+        return (
+          <ul className="text-black list-disc text-lg">
+            <li>Fondos de inversión mixtos</li>
+            <li>ETFs diversificados</li>
+            <li>Bonos corporativos</li>
+          </ul>
+        );
+      case "avanzado":
+        return (
+          <ul className="text-black list-disc text-lg">
+            <li>Opciones y futuros</li>
+            <li>Contratos por diferencia (CFDs)</li>
+            <li>Derivados financieros</li>
+          </ul>
+        );
+      case "experto":
+        return (
+          <ul className="text-black list-disc text-lg">
+            <li>Operaciones apalancadas</li>
+            <li>Estrategias de arbitraje</li>
+            <li>Instrumentos financieros complejos</li>
+          </ul>
+        );
+      default:
+        return null;
+    }
+  };
 
   return (
-    <div className="flex justify-center mt-8 h-full">
-      <main className="bg-[#8435de] text-white h-full w-[500px] flex  flex-col justify-evenly items-center rounded-3xl">
-        <div className="lado-izquierdo w-full px-6">
-          <div className="numero-pregunta text-center mt-8">
-            <span> Pregunta {preguntaActual + 1} de</span> {preguntas.length}
+    <div className="p-4 text-white">
+      <p className="text-2xl text-center text-blue-900 font-bold py-1 bg-gray-200 w-8/12 mx-auto rounded-lg mb-3">
+        Perfil del Inversor
+      </p>
+      {!resultadosMostrados ? (
+        <div className="flex flex-col justify-center items-center shadow-xl shadow-slate-800 bg-blue-700 rounded-2xl w-8/12 mx-auto gap-5 py-4">
+          <div className="numero-pregunta">
+            Pregunta {preguntaActual + 1} de {preguntas.length}
           </div>
-          <div className="titulo-pregunta font-bold text-2xl mt-3 mb-5 text-center">
+          <div className="titulo-pregunt bg-slate-800 font-bold py-5 text-left rounded-lg w-8/12 mx-auto cursor-pointer transition duration-300  shadow-lg px-3">
             {getPreguntaActual().titulo}
           </div>
-          <div className="opciones flex flex-col py-5 gap-3">
-            {getPreguntaActual().opciones.map((respuesta) => (
-              <button
-                className="bg-[#3c0e70] mt-2 py-3 rounded-lg cursor-pointer transition duration-500 opacity-75 hover:opacity-100"
-                disabled={areDisabled}
-                key={respuesta.textoRespuesta}
-                onClick={(e) => handleAnswerSubmit(respuesta.isCorrect, e)}
-              >
-                {respuesta.textoRespuesta}
-              </button>
+          <ul className="flex flex-col py-5 gap-2 w-8/12 mx-auto">
+            {getPreguntaActual().opciones.map((opcion, index) => (
+              <li key={index}>
+                <button
+                  onClick={() => handleAnswerSubmit(opcion)}
+                  disabled={areDisabled}
+                  className="bg-blue-600 shadow-md shadow-slate-900 text-white font-medium py-3 text-left rounded-lg w-full cursor-pointer transition duration-300 px-3"
+                >
+                  {opcion.textoRespuesta}
+                </button>
+              </li>
             ))}
+          </ul>
+          <div className="tiempo-restante">
+            Tiempo restante: {tiempoRestante}
           </div>
         </div>
-        <div className="mb-12">
-          {!areDisabled ? (
-            <span className="tiempo-restante">
-              Tiempo restante: {tiempoRestante}{" "}
-            </span>
-          ) : (
-            <button
-              className="mb-2 mt-3 border-2 rounded-full px-8 py-4"
-              onClick={() => {
-                setTiempoRestante(10);
-                setAreDisabled(false);
-                if (preguntaActual === preguntas.length - 1) {
-                  setIsFinished(true);
-                } else {
-                  setPreguntaActual(preguntaActual + 1);
-                }
-              }}
-            >
-              Continuar
-            </button>
-          )}
+      ) : (
+        <div className="flex flex-col gap-5 rounded-2xl shadow-md shadow-slate-800 w-8/12 mx-auto p-6">
+          <div className="flex justify-center items-center">
+            <p className="text-3xl text-center text-blue-700">
+              <BsPersonRaisedHand />
+            </p>
+          </div>
+          <h3 className="w-10/12 text-blue-900 mx-auto text-center text-2xl font-bold">
+            Perfil del inversor:
+          </h3>
+
+          <p className="text-xl text-center text-blue-700 uppercase font-black tracking-widest">
+            {determinarPerfilPredominante()}.
+          </p>
+          <div className="flex flex-col md:flex-row bg-gray-200 p-3 rounded-2xl">
+            <div className="w-5/12">
+              <Image
+                src="/usuario.png"
+                width={400}
+                height={400}
+                alt="usuario"
+                className="w-44"
+              />
+            </div>
+            <div className="w-7/12 flex flex-col gap-2 justify-center items-center">
+              <h4 className="font-bold text-xl text-black text-left">
+                Productos que puede operar:
+              </h4>
+              {mostrarProductos()}
+            </div>
+          </div>
+          <div className="flex justify-end gap-3">
+            <div className="flex justify-end items-center">
+              <button
+                onClick={reiniciarTest}
+                className="px-5 py-3 bg-blue-600 text-white font-semibold rounded-xl"
+              >
+                Volver a realizar el test
+              </button>
+            </div>
+            <div className="flex justify-end items-center">
+              <Link href="/documentacionRequerida">
+                <button className="px-5 py-3 bg-blue-600 text-white font-semibold rounded-xl">
+                  Sí, estoy de acuerdo
+                </button>
+              </Link>
+            </div>
+          </div>
         </div>
-      </main>
+      )}
     </div>
   );
-}
+};
 
-export default TestPerfilInversor
+export default TestPerfilInversor;
