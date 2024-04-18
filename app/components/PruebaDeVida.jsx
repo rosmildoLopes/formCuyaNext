@@ -17,7 +17,7 @@ const PruebaDeVida = () => {
       <div className="flex flex-col md:flex-row gap-12 justify-center mt-12">
         <div className="flex flex-col border rounded-xl py-10 px-12 gap-6 w-full md:w-1/2">
           <div className="flex justify-center items-center">
-            <button className="bg-blue-600 text-white w-2/3 py-2 rounded-lg font-semibold flex items-center justify-center gap-3">
+            <button className="bg-blue-600 text-white w-full lg:w-2/3 py-2 rounded-lg font-semibold flex items-center justify-center gap-3">
               <p className="flex justify-center items-center text-xl">
                 <ImUpload3 />
               </p>
@@ -32,8 +32,8 @@ const PruebaDeVida = () => {
               height={300}
             />
           </div>
-          <div className="flex border w-full">
-            <p className="ml-5 p-7 text-left font-semibold">
+          <div className="flex w-full justify-center items-center">
+            <p className="lg:ml-5 lg:p-7 p-4 text-left font-semibold">
               {" "}
               Especificaciones para la validación de su DNI
             </p>
@@ -49,7 +49,7 @@ const PruebaDeVida = () => {
         </div>
         <div className="flex flex-col border rounded-xl py-10 px-12 gap-6 w-full md:w-1/2">
           <div className="flex flex-col md:flex-row justify-center items-center ">
-            <button className="bg-blue-600 text-white w-full lg:w-2/3 py-2 px-1 rounded-lg text-xs md:text-base font-semibold flex items-center justify-center gap-3">
+            <button className="bg-blue-600 text-white w-full lg:w-2/3 py-2 px-4 rounded-lg text-xs md:text-base font-semibold flex items-center justify-center gap-3">
               <p className="flex justify-center items-center text-xl">
                 <ImUpload3 />
               </p>
@@ -64,10 +64,11 @@ const PruebaDeVida = () => {
               height={300}
             />
           </div>
-          <div className="flex border w-full">
-            <p className="ml-5 p-7 text-left font-semibold">
+          <div className="flex w-full">
+            <p className="lg:ml-5 lg:p-7 p-4 text-left font-semibold">
               {" "}
-              Mano con cinco(5) dedos levantados a la misma altura del rostro. Se debe ver mano completa en la fotografia
+              Mano con cinco(5) dedos levantados a la misma altura del rostro.
+              Se debe ver mano completa en la fotografia
             </p>
           </div>
         </div>

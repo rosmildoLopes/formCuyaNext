@@ -20,7 +20,7 @@ const DocumentacionRequerida = () => {
           superar los 50MB en la totalidad de los archivos
         </p>
       </div>
-      <p className="text-blue-700 bg-gray-200 font-semibold text-center tracking-wide py-1">
+      <p className="text-blue-700 w-full bg-gray-200 font-semibold text-center tracking-wide py-1">
         Frente y Dorso del DNI
       </p>
       <SubirDni />

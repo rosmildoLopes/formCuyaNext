@@ -35,7 +35,7 @@ const DatosDelTitular = () => {
               <p className="text-left text-sm">correoelectronico@gmail.com</p>
             </div>
           </div>
-          <div className="flex flex-col justify-center items-center gap-5 w-3/12">
+          <div className="flex flex-col justify-center items-center gap-5 md:w-full lg:w-3/12">
             <div className="flex justify-center items-center w-full">
               <Link href="/datosPersonales" className="w-full">
                 <button className="px-5 py-3 bg-blue-600 text-white font-extrabold rounded-full w-full">

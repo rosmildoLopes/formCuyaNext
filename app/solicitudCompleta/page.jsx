@@ -5,7 +5,7 @@ import { FaRegCheckCircle } from "react-icons/fa";
 const page = () => {
   return (
     <div className="flex flex-col gap-12 p-12">
-      <div className="flex flex-col gap-8 rounded-2xl shadow-md shadow-slate-800 w-8/12 mx-auto p-16">
+      <div className="flex flex-col gap-8 rounded-2xl shadow-md shadow-slate-800 w-full lg:w-8/12 mx-auto p-6 lg:p-16">
       <div className="flex justify-center items-center">
         <p className="text-8xl text-blue-700">
           <FaRegCheckCircle />

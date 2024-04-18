@@ -89,7 +89,7 @@ const Form = () => {
       <p className="flex justify-center items-center text-4xl font-extrabold text-zinc-600 w-8/12 mx-auto h-20">
         LOGO CUYANAS
       </p>
-      <h2 className="bg-blue-700 py-2 text-2xl text-center font-bold text-white w-11/12 mx-auto shadow-lg shadow-gray-800 mb-2">
+      <h2 className="bg-blue-700 py-3 text-2xl text-center font-bold text-white w-11/12 mx-auto shadow-lg shadow-gray-800 mb-2">
         Iniciar Alta de Cuenta de Persona Humana
       </h2>
       {errors.consentimiento?.type === "required" && (

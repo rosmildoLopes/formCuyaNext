@@ -8,7 +8,7 @@ import Link from "next/link";
 const TestPerfilInversor = () => {
   const [preguntasAleatorias, setPreguntasAleatorias] = useState([]);
   const [preguntaActual, setPreguntaActual] = useState(0);
-  const [tiempoRestante, setTiempoRestante] = useState(10);
+  const [tiempoRestante, setTiempoRestante] = useState(60);
   const [areDisabled, setAreDisabled] = useState(false);
   const [respuestas, setRespuestas] = useState([]);
   const [resultadosMostrados, setResultadosMostrados] = useState(false);
@@ -45,7 +45,7 @@ const TestPerfilInversor = () => {
       } else {
         // Si no es la última pregunta, pasa a la siguiente
         setPreguntaActual(preguntaActual + 1);
-        setTiempoRestante(10);
+        setTiempoRestante(60);
       }
     }, 1500);
   };
@@ -100,7 +100,7 @@ const TestPerfilInversor = () => {
         );
       case "experto":
         return (
-          <ul className="text-black list-disc text-lg">
+          <ul className="text-black list-disc text-lg ">
             <li>Operaciones apalancadas</li>
             <li>Estrategias de arbitraje</li>
             <li>Instrumentos financieros complejos</li>
@@ -112,25 +112,25 @@ const TestPerfilInversor = () => {
   };
 
   return (
-    <div className="p-4 text-white">
-      <p className="text-2xl text-center text-blue-900 font-bold py-1 bg-gray-200 w-8/12 mx-auto rounded-lg mb-3">
+    <div className="py-8 px-3 lg:p-4 text-black font-bold">
+      <p className="text-2xl text-center text-blue-900 font-bold py-1 bg-gray-200 w-full lg:w-8/12 mx-auto rounded-lg mb-3">
         Perfil del Inversor
       </p>
       {!resultadosMostrados ? (
-        <div className="flex flex-col justify-center items-center shadow-xl shadow-slate-800 bg-blue-700 rounded-2xl w-8/12 mx-auto gap-5 py-4">
+        <div className="flex flex-col justify-center items-center shadow-xl shadow-slate-800  rounded-2xl w-full lg:w-8/12 mx-auto gap-5 py-4">
           <div className="numero-pregunta">
             Pregunta {preguntaActual + 1} de {preguntas.length}
           </div>
-          <div className="titulo-pregunt bg-slate-800 font-bold py-5 text-left rounded-lg w-8/12 mx-auto cursor-pointer transition duration-300  shadow-lg px-3">
+          <div className="titulo-pregunt text-blue-900 font-bold bg-gray-300 shadow-lg shadow-slate-500  py-5 text-left rounded-lg w-11/12 lg:w-8/12 mx-auto cursor-pointer transition duration-300 px-3">
             {getPreguntaActual().titulo}
           </div>
-          <ul className="flex flex-col py-5 gap-2 w-8/12 mx-auto">
+          <ul className="flex flex-col py-5 gap-3 w-11/12 lg:w-8/12 mx-auto">
             {getPreguntaActual().opciones.map((opcion, index) => (
               <li key={index}>
                 <button
                   onClick={() => handleAnswerSubmit(opcion)}
                   disabled={areDisabled}
-                  className="bg-blue-600 shadow-md shadow-slate-900 text-white font-medium py-3 text-left rounded-lg w-full cursor-pointer transition duration-300 px-3"
+                  className="bg-gray-200 shadow-md  shadow-slate-700 hover:scale-105 font-medium py-3 text-left rounded-lg w-full cursor-pointer transition duration-300 px-3"
                 >
                   {opcion.textoRespuesta}
                 </button>
@@ -182,7 +182,7 @@ const TestPerfilInversor = () => {
               </button>
             </div>
             <div className="flex justify-end items-center">
-              <Link href="/documentacionRequerida">
+              <Link href="/solicitudCompleta">
                 <button className="px-5 py-3 bg-blue-600 text-white font-semibold rounded-xl">
                   Sí, estoy de acuerdo
                 </button>
