@@ -17,7 +17,7 @@ export default function Home() {
     "Datos Personales",
     "Foto DNI",
     "Apertura de Cuenta",
-    "Calcular",
+    "Test de Inversor",
     "Foto",
     "Finalizar",
   ];
