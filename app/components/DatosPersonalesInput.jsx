@@ -7,17 +7,11 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import TextField from "@mui/material/TextField";
+import useLocalStorageForm from "../useLocalStorageForm";
 
 const DatosPersonalesInput = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  const { register, handleSubmit, errors, onSubmit, formData } =
+    useLocalStorageForm("formularioDatosPersonales");
 
   return (
     <div className="">
@@ -68,11 +62,11 @@ const DatosPersonalesInput = () => {
               <input
                 className=" border-b outline-none px-6 appearance-none"
                 type="date"
-                {...register("birth", {
+                {...register("nacimiento", {
                   required: true,
                 })}
               />
-              {errors.birth?.type === "required" && (
+              {errors.nacimiento?.type === "required" && (
                 <p className="text-red-600">El campo es obligatorio</p>
               )}
             </div>

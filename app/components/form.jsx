@@ -6,6 +6,7 @@ import Link from "next/link";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Image from "next/image";
 
 const Form = () => {
   const {
@@ -86,9 +87,15 @@ const Form = () => {
 
   return (
     <div className=" lg:w-6/12 mx-auto flex flex-col gap-2">
-      <p className="flex justify-center items-center text-4xl font-extrabold text-zinc-600 w-8/12 mx-auto h-20">
-        LOGO CUYANAS
-      </p>
+      <div className="flex justify-center items-center">
+        <Image
+          priority
+          alt="logo Inversiones cuyanas"
+          src="/logo-cuyanas.jpeg"
+          width={400}
+          height={400}
+        />
+      </div>
       <h2 className="bg-blue-700 py-3 text-2xl text-center font-bold text-white w-11/12 mx-auto shadow-lg shadow-gray-800 mb-2">
         Iniciar Alta de Cuenta de Persona Humana
       </h2>
@@ -143,21 +150,19 @@ const Form = () => {
           )}
         </div>
         <div className="flex flex-col ">
-        <InputLabel id="demo-simple-select-standard-label">
-                Genero
-              </InputLabel>
-              <Select
-                variant="standard"
-                {...register("genero", {
-                  required: true,
-                })}
-                label="genero"
-              >
-                <MenuItem value="masculino">Masculino</MenuItem>
-                <MenuItem value="femenino">Femenino</MenuItem>
-                <MenuItem value="No binario">No binario</MenuItem>
-                <MenuItem value="otro">Otro</MenuItem>
-              </Select>
+          <InputLabel id="demo-simple-select-standard-label">Genero</InputLabel>
+          <Select
+            variant="standard"
+            {...register("genero", {
+              required: true,
+            })}
+            label="genero"
+          >
+            <MenuItem value="masculino">Masculino</MenuItem>
+            <MenuItem value="femenino">Femenino</MenuItem>
+            <MenuItem value="No binario">No binario</MenuItem>
+            <MenuItem value="otro">Otro</MenuItem>
+          </Select>
           {errors.genero?.type === "required" && (
             <p className="text-red-600">Este campo es obligatorio</p>
           )}
